@@ -82,6 +82,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 onPressed: () {},
                 child: const Text('Cadastre-se'),
               ),
+              const SizedBox(height: 24),
             ],
           ),
         ],
