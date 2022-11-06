@@ -14,8 +14,8 @@ class LoginModule extends StatefulWidget {
 class _LoginModuleState extends State<LoginModule> {
   final Map<String, Widget> _routes = {
     '/': const LoginPage(),
-    '/reminder': const TestModule(),
-    '/aaa': const TestModule(),
+    // '/reminder': const Scaffold(body: Center(child: Text('reminder'),),),
+    // '/aaa': const Scaffold(body: Center(child: Text('aaa'),),),
   };
 
   @override

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iclassroom/api/models/composted_route.dart';
+import 'package:iclassroom/app/shared/widgets/iclassroom_not_found_page.dart';
 
 class IclassroomModule extends StatefulWidget {
   final Map<String, Widget> routes;
@@ -27,44 +29,26 @@ class _IclassroomModuleState extends State<IclassroomModule> {
 
   Route? _generateRoutes(RouteSettings settings) {
     Widget? page = widget.routes[settings.name];
-    debugPrint('Page => ${settings.name}');
-    if (page == null || (ModalRoute.of(context)!.settings.arguments as Map<String, String>? ?? {})['route'] != null) return _splitRoutes(settings);
+    debugPrint('PAGE:: ${settings.name}');
+    if (page == null || ModalRoute.of(context)!.settings.arguments is CompostedRoute) return _splitRoutes(settings);
     return MaterialPageRoute(builder: (context) => page, settings: settings);
   }
 
   Route? _splitRoutes(RouteSettings settings) {
-    debugPrint('Page not found, go to split');
-    Map<String, String>? arguments = ModalRoute.of(context)!.settings.arguments as Map<String, String>?;
-    debugPrint('arguments routes => $arguments');
+    debugPrint('Page not found, splitting route');
+    CompostedRoute? composedRoute = ModalRoute.of(context)!.settings.arguments as CompostedRoute?;
 
-    arguments ??= {'route': settings.name!};
-    List<String> routesList = arguments['route']!.split('/');
+    composedRoute ??= CompostedRoute(route: settings.name!);
+    List<String> routesList = composedRoute.route!.split('/');
     routesList.removeAt(0);
 
-    debugPrint('after routes => $routesList');
-    debugPrint('Route to go => /${routesList[0] ?? ''}');
+    debugPrint('ROUTE TU GO:: => /${routesList[0] ?? ''}');
     Widget? page = widget.routes['/${routesList[0]}'];
 
-    debugPrint('final Page: $page');
-    RouteSettings newSettings = RouteSettings(arguments: {'route': routesList.join('/')});
-    print(newSettings);
-    debugPrint('#############');
+    debugPrint('TYPE PAGE:: $page');
+    RouteSettings? newSettings = routesList.length > 1 ? RouteSettings(arguments: CompostedRoute(route: routesList.join('/'))) : null;
     return MaterialPageRoute(
-      builder: (context) =>
-          page ??
-          Scaffold(
-            backgroundColor: Theme.of(context).primaryColor,
-            body: const Center(
-              child: Text(
-                'Página não encontrada',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
+      builder: (context) => page ?? const IclassroomNotFoundPage(),
       settings: newSettings,
     );
   }

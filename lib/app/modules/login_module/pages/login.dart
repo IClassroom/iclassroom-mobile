@@ -139,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 8),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushNamed('/reminder/test');
+                          Navigator.of(context).pushNamed('/reminder');
                         },
                         child: Text(
                           'Esqueci minha senha',
