@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:iclassroom/api/models/api_exception.dart';
 
 abstract class MainService {
   Map<String, String> headers = {
@@ -43,9 +44,10 @@ abstract class MainService {
   }
 
   Map<String, dynamic> validateResponse(http.Response response) {
+    Map<String, dynamic> responseBody = jsonDecode(response.body)['result'];
     if (response.statusCode > 399) {
-      throw Exception('ResponseError');
+      throw ApiException(message: responseBody['message'], statusCode: response.statusCode);
     }
-    return jsonDecode(response.body);
+    return responseBody;
   }
 }
