@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iclassroom/app/modules/login_module/login_module.dart';
+import 'package:iclassroom/app/modules/register_module/register_module.dart';
 
 import 'pages/wellcome.dart';
 
@@ -16,6 +17,7 @@ class App extends StatelessWidget {
       routes: {
         '/': (_) => const WelcomePage(),
         '/login': (_) => const LoginModule(),
+        '/register': (_) => const RegisterModule(),
       },
     );
   }

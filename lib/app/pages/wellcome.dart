@@ -79,7 +79,9 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: 12,
               ),
               OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/register');
+                },
                 child: const Text('Cadastre-se'),
               ),
               const SizedBox(height: 24),
