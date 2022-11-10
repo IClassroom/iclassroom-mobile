@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:iclassroom/api/models/api_exception.dart';
 
-abstract class MainService {
+class MainService {
   Map<String, String> headers = {
     'Authorization': 'Basic AMXALINDAN/ASDKMALKM123.12.123KMO',
   };

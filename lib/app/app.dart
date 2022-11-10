@@ -1,24 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iclassroom/api/repositories/auth_repository.dart';
+import 'package:iclassroom/app/bloc/bloc.dart';
 import 'package:iclassroom/app/modules/login_module/login_module.dart';
 import 'package:iclassroom/app/modules/register_module/register_module.dart';
+import 'package:iclassroom/app/pages/splash.dart';
 
 import 'pages/wellcome.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: _theme(context),
-      initialRoute: '/',
-      routes: {
-        '/': (_) => const WelcomePage(),
-        '/login': (_) => const LoginModule(),
-        '/register': (_) => const RegisterModule(),
-      },
+    return RepositoryProvider(
+      create: (context) => AuthRepository(),
+      child: BlocProvider(
+        create: (context) => AuthBloc(
+          repository: context.read<AuthRepository>(),
+        ),
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: _theme(context),
+          initialRoute: '/',
+          routes: {
+            '/': (_) => const SplashPage(),
+            '/welcome': (_) => const WelcomePage(),
+            '/login': (_) => const LoginModule(),
+            '/register': (_) => const RegisterModule(),
+          },
+        ),
+      ),
     );
   }
 
@@ -77,7 +89,7 @@ class App extends StatelessWidget {
       ),
       inputDecorationTheme: const InputDecorationTheme(
         border: OutlineInputBorder(),
-      )
+      ),
     );
   }
 }
