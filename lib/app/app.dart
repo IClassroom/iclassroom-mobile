@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iclassroom/api/repositories/auth_repository.dart';
 import 'package:iclassroom/app/bloc/bloc.dart';
+import 'package:iclassroom/app/modules/logged_area/logged_area_module.dart';
 import 'package:iclassroom/app/modules/login_module/login_module.dart';
 import 'package:iclassroom/app/modules/register_module/register_module.dart';
 import 'package:iclassroom/app/pages/splash.dart';
@@ -28,6 +29,7 @@ class App extends StatelessWidget {
             '/welcome': (_) => const WelcomePage(),
             '/login': (_) => const LoginModule(),
             '/register': (_) => const RegisterModule(),
+            '/logged_area': (_) => const LoggedAreaModule(),
           },
         ),
       ),

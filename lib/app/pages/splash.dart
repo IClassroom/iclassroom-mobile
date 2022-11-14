@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
   _body() {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state is Authenticated) Navigator.of(context).pushReplacementNamed('/home');
+        if (state is Authenticated) Navigator.of(context).pushReplacementNamed('/logged_area');
         if (state is UnAuthenticated) Navigator.of(context).pushReplacementNamed('/welcome');
       },
       builder: (context, state) {
