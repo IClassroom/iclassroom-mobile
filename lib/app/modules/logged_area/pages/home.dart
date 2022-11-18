@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iclassroom/api/models/class.dart';
+import 'package:iclassroom/api/models/user.dart';
 import 'package:iclassroom/api/repositories/auth_repository.dart';
+import 'package:iclassroom/app/shared/widgets/components/iclassroom_class_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -72,30 +75,102 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             SizedBox(
               height: 112,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
                   const SizedBox(width: 24),
-                  Container(
-                    color: Colors.red,
-                    width: 264,
+                  IClassroomClassCard(
+                    classroom: Class(
+                      className: 'Compiladores',
+                      days: ['Seg', 'Qua'],
+                      times: ['7:20'],
+                      users: [
+                        User(
+                          id: 10,
+                          name: 'Yago',
+                          email: 'ytf@ic.ufal.br',
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  IClassroomClassCard(
+                    classroom: Class(
+                      className: 'PAA',
+                      days: ['Ter', 'Qui'],
+                      times: ['9:10', '11:00'],
+                      users: [
+                        User(
+                          id: 10,
+                          name: 'Yago',
+                          email: 'ytf@ic.ufal.br',
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  IClassroomClassCard(
+                    classroom: Class(
+                      className: 'Processamento digital de imagens',
+                      days: ['Ter', 'Qui'],
+                      times: ['11:10', '13:00'],
+                      users: [
+                        User(
+                          id: 10,
+                          name: 'Yago',
+                          email: 'ytf@ic.ufal.br',
+                        )
+                      ],
+                    ),
                   ),
                   const SizedBox(width: 24),
-                  Container(
-                    color: Colors.red,
-                    width: 264,
-                  ),
-                  const SizedBox(width: 24),
-                  Container(
-                    color: Colors.red,
-                    width: 264,
-                  ),
                 ],
               ),
-            )
+            ),
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Atividades'),
+                  Text(
+                    'Ver todos',
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            SizedBox(
+              height: 150,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  const SizedBox(width: 24),
+                  Container(
+                    color: Colors.red,
+                    width: 150,
+                  ),
+                  const SizedBox(width: 8),
+                  Container(
+                    color: Colors.red,
+                    width: 150,
+                  ),
+                  const SizedBox(width: 8),
+                  Container(
+                    color: Colors.red,
+                    width: 150,
+                  ),
+                  const SizedBox(width: 24),
+                ],
+              ),
+            ),
           ],
         ),
       ),
