@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iclassroom/app/modules/logged_area/modules/home_module.dart';
+import 'package:iclassroom/app/modules/logged_area/pages/home.dart';
 
 class LoggedAreaModule extends StatefulWidget {
   const LoggedAreaModule({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class LoggedAreaModule extends StatefulWidget {
 class _LoggedAreaModuleState extends State<LoggedAreaModule> {
   int _currentPage = 0;
   final List<Widget> _pages = [
-    const HomeModule(),
+    const HomePage(),
     const Scaffold(
       body: Center(
         child: Text('Duvidas'),

@@ -9,6 +9,6 @@ class AuthRepository {
 
   getStatus() async {
     await Future.delayed(const Duration(seconds: 1));
-    // user = User(id: 1, name: 'Yago Taveiros', email: 'ytaveiros@gmail.com');
+    user = User(id: 1, name: 'Yago Taveiros', email: 'ytaveiros@gmail.com');
   }
 }
