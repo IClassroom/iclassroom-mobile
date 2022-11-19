@@ -140,8 +140,9 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     'Ver todos',
                     style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold),
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
                   )
                 ],
               ),
