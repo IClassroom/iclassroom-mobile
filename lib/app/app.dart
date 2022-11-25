@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iclassroom/api/repositories/auth_repository.dart';
 import 'package:iclassroom/app/bloc/bloc.dart';
 import 'package:iclassroom/app/modules/logged_area/logged_area_module.dart';
-import 'package:iclassroom/app/modules/login_module/login_module.dart';
-import 'package:iclassroom/app/modules/register_module/register_module.dart';
+import 'package:iclassroom/app/modules/login_module/pages/login.dart';
+import 'package:iclassroom/app/modules/login_module/pages/reminder_password.dart';
 import 'package:iclassroom/app/pages/splash.dart';
 
+import 'modules/register_module/pages/register.dart';
 import 'pages/wellcome.dart';
 
 class App extends StatelessWidget {
@@ -26,9 +27,10 @@ class App extends StatelessWidget {
           initialRoute: '/',
           routes: {
             '/': (_) => const SplashPage(),
+            '/reminder': (_) => const ReminderPasswordPage(),
             '/welcome': (_) => const WelcomePage(),
-            '/login': (_) => const LoginModule(),
-            '/register': (_) => const RegisterModule(),
+            '/login': (_) => const LoginPage(),
+            '/register': (_) => const RegisterPage(),
             '/logged_area': (_) => const LoggedAreaModule(),
           },
         ),
