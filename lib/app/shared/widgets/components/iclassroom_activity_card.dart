@@ -58,7 +58,7 @@ class _IClassroomActivityCardState extends State<IClassroomActivityCard> {
                 ),
                 child: const Text('Difícil', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),),
               ),
-              const Icon(Icons.picture_as_pdf)
+              const Icon(Icons.picture_as_pdf, color: Colors.grey,)
             ],
           ),
         ],
