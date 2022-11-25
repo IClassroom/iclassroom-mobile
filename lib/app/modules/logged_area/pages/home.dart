@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iclassroom/api/models/class.dart';
 import 'package:iclassroom/api/models/user.dart';
 import 'package:iclassroom/api/repositories/auth_repository.dart';
+import 'package:iclassroom/app/shared/widgets/components/iclassroom_activity_card.dart';
 import 'package:iclassroom/app/shared/widgets/components/iclassroom_class_card.dart';
+import 'package:iclassroom/app/shared/widgets/components/iclassroom_questions_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -152,26 +154,48 @@ class _HomePageState extends State<HomePage> {
               height: 150,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [
-                  const SizedBox(width: 24),
-                  Container(
-                    color: Colors.red,
-                    width: 150,
-                  ),
-                  const SizedBox(width: 8),
-                  Container(
-                    color: Colors.red,
-                    width: 150,
-                  ),
-                  const SizedBox(width: 8),
-                  Container(
-                    color: Colors.red,
-                    width: 150,
-                  ),
-                  const SizedBox(width: 24),
+                children: const [
+                  SizedBox(width: 24),
+                  IClassroomActivityCard(),
+                  SizedBox(width: 8),
+                  IClassroomActivityCard(),
+                  SizedBox(width: 8),
+                  IClassroomActivityCard(),
+                  SizedBox(width: 24),
                 ],
               ),
             ),
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Dúvidas em aberto'),
+                  Text(
+                    'Ver todos',
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Column(
+                children: const [
+                  IClassroomQuestionCard(),
+                  SizedBox(height: 12),
+                  IClassroomQuestionCard(),
+                  SizedBox(height: 12),
+                  IClassroomQuestionCard(),
+                ],
+              ),
+            ),
+            const SizedBox(height: 30),
           ],
         ),
       ),
