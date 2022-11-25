@@ -15,7 +15,6 @@ class _LoginModuleState extends State<LoginModule> {
   final Map<String, Widget> _routes = {
     '/': const LoginPage(),
     '/reminder': const ReminderPasswordPage(),
-    // '/aaa': const Scaffold(body: Center(child: Text('aaa'),),),
   };
 
   @override
