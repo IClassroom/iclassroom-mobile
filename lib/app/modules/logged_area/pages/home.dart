@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iclassroom/api/models/class.dart';
 import 'package:iclassroom/api/models/user.dart';
 import 'package:iclassroom/api/repositories/auth_repository.dart';
+import 'package:iclassroom/app/bloc/bloc.dart';
 import 'package:iclassroom/app/shared/widgets/components/iclassroom_activity_card.dart';
 import 'package:iclassroom/app/shared/widgets/components/iclassroom_class_card.dart';
 import 'package:iclassroom/app/shared/widgets/components/iclassroom_questions_card.dart';
@@ -16,6 +17,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+
+  
   Widget build(BuildContext context) {
     return Scaffold(
       body: _body(),
@@ -46,15 +49,20 @@ class _HomePageState extends State<HomePage> {
                       color: Theme.of(context).primaryColor,
                     ),
                     const SizedBox(width: 16),
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFFD9D9D9),
-                      ),
-                      child: Icon(
-                        Icons.person,
-                        color: Theme.of(context).primaryColor,
+                    GestureDetector(
+                      onTap: () {
+                        context.read<AuthBloc>().add(Logout(onSuccess: () => Navigator.of(context).pushNamed('/')));
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xFFD9D9D9),
+                        ),
+                        child: Icon(
+                          Icons.person,
+                          color: Theme.of(context).primaryColor,
+                        ),
                       ),
                     ),
                   ],

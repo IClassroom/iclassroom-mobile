@@ -9,6 +9,14 @@ class AuthRepository {
 
   getStatus() async {
     await Future.delayed(const Duration(seconds: 1));
+    if (user == null) throw ApiException(message: 'Unatuthenticated', statusCode: 402);
+  }
+
+  doLogin() {
     user = User(id: 1, name: 'Yago Taveiros', email: 'ytaveiros@gmail.com');
+  }
+
+  doLogout() {
+    user = null;
   }
 }

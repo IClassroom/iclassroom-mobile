@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iclassroom/app/bloc/bloc.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -24,6 +26,9 @@ class _LoginPageState extends State<LoginPage> {
             if (!_formKey.currentState!.validate()) {
               return;
             }
+            context.read<AuthBloc>().add(Login(
+              onSuccess: () => Navigator.of(context).pushNamedAndRemoveUntil('/', (_) => false),
+            ));
           },
           child: const Text('Entrar'),
         ),

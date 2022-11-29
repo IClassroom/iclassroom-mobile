@@ -26,6 +26,7 @@ class _SplashPageState extends State<SplashPage> {
 
   _body() {
     return BlocConsumer<AuthBloc, AuthState>(
+      listenWhen: (previous, current) => previous != current,
       listener: (context, state) {
         if (state is Authenticated) Navigator.of(context).pushReplacementNamed('/logged_area');
         if (state is UnAuthenticated) Navigator.of(context).pushReplacementNamed('/welcome');
