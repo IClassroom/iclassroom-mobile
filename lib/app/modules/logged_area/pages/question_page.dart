@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ResponsePage extends StatefulWidget {
-  const ResponsePage({Key? key}) : super(key: key);
+class QuestionPage extends StatefulWidget {
+  const QuestionPage({Key? key}) : super(key: key);
 
   @override
-  State<ResponsePage> createState() => _ResponsePageState();
+  State<QuestionPage> createState() => _QuestionPageState();
 }
 
-class _ResponsePageState extends State<ResponsePage> {
+class _QuestionPageState extends State<QuestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

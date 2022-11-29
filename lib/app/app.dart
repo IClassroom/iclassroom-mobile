@@ -4,7 +4,7 @@ import 'package:iclassroom/api/repositories/auth_repository.dart';
 import 'package:iclassroom/app/bloc/bloc.dart';
 import 'package:iclassroom/app/modules/logged_area/logged_area_module.dart';
 import 'package:iclassroom/app/modules/logged_area/pages/class_page.dart';
-import 'package:iclassroom/app/modules/logged_area/pages/response_page.dart';
+import 'package:iclassroom/app/modules/logged_area/pages/question_page.dart';
 import 'package:iclassroom/app/modules/login_module/pages/login.dart';
 import 'package:iclassroom/app/modules/login_module/pages/reminder_password.dart';
 import 'package:iclassroom/app/pages/splash.dart';
@@ -35,7 +35,7 @@ class App extends StatelessWidget {
             '/register': (_) => const RegisterPage(),
             '/logged_area': (_) => const LoggedAreaModule(),
             '/class': (_) => const ClassPage(),
-            '/response': (_) => const ResponsePage(),
+            '/response': (_) => const QuestionPage(),
           },
         ),
       ),
