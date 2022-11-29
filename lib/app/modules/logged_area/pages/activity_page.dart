@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class QuestionPage extends StatefulWidget {
-  const QuestionPage({Key? key}) : super(key: key);
+class ActivityPage extends StatefulWidget {
+  const ActivityPage({Key? key}) : super(key: key);
 
   @override
-  State<QuestionPage> createState() => _QuestionPageState();
+  State<ActivityPage> createState() => _ActivityPageState();
 }
 
-class _QuestionPageState extends State<QuestionPage> {
+class _ActivityPageState extends State<ActivityPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
